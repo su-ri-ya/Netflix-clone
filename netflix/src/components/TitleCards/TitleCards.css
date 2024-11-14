@@ -1,30 +1,34 @@
-.title-cards{
+.title-cards {
     margin-top: 50px;
     margin-bottom: 30px;
+    position: relative; /* Ensure buttons are positioned relative to this container */
 }
-.title-cards h2{
+
+.title-cards h2 {
     margin-bottom: 8px;
 }
-.card-list{
+
+.card-list {
     display: flex;
     gap: 10px;
-    overflow-x: scroll;
+    overflow-x:scroll;
+}
 
+.card-list::-webkit-scrollbar {
+    display: none; /* Hides default scrollbar */
 }
-.card-list::-webkit-scrollbar{
-    display: none;
-    
-}
-.card-list img{
+
+.card-list img {
     width: 240px;
     border-radius: 4px;
     cursor: pointer;
-
 }
-.card-list .card{
+
+.card-list .card {
     position: relative;
 }
-.card-list .card p{
+
+.card-list .card p {
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -32,32 +36,60 @@
     color: #fff;
 }
 
-@media (max-width:800px) {
-    .title-cards{
+/* Hide the buttons by default, show only on hover */
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    display: none; /* Hidden by default */
+}
+
+/* Left and right buttons positioning */
+.scroll-button.left {
+    left: 10px;
+}
+
+.scroll-button.right {
+    right: 10px;
+}
+
+/* Show buttons when the user hovers over the title-cards container */
+.title-cards:hover .scroll-button {
+    display: block;
+}
+
+/* Responsive styles */
+@media (max-width: 800px) {
+    .title-cards {
         margin-top: 20px;
         margin-bottom: 0;
     }
-    .title-cards h2{
+    .title-cards h2 {
         font-size: 20px;
     }
-    .card-list img{
+    .card-list img {
         width: 200px;
     }
-    .card-list p{
+    .card-list p {
         font-size: 12px;
     }
-    
 }
-@media (max-width:500px) {
-    
-    .title-cards h2{
+
+@media (max-width: 500px) {
+    .title-cards h2 {
         font-size: 15px;
     }
-    .card-list img{
+    .card-list img {
         width: 165px;
     }
-    .card-list p{
+    .card-list p {
         font-size: 10px;
     }
-    
 }
